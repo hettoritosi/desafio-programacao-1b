@@ -5,7 +5,7 @@ gem 'carrierwave'
 gem 'bootstrap-sass'
 #Bootstrap
 gem 'squeel'
-#queries
+#Better queries
 gem 'rspec-rails'
 #Testes
 

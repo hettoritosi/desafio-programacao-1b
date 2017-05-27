@@ -1,13 +1,10 @@
 class ImportFilesController < ApplicationController
-  before_action :set_import_file, only: [:show, :edit, :update, :destroy]
 
 require 'base64'
-
 require 'csv'
 
-
   def new
-    @import_file = ImportFile.new
+   @import_file = ImportFile.new
   end
 
   def create
@@ -15,10 +12,12 @@ require 'csv'
     # Processo de ETL para carregar os dados para o banco de dados relacional
     
     @import_file = ImportFile.new(import_file_params)
-  
-    uploaded_file = @import_file.attachment
-    file_content = uploaded_file.path
     
+      uploaded_file = @import_file.attachment
+      file_content = uploaded_file.path
+      
+    if !file_content.blank?
+      
       File.open(file_content) do |f|
         CSV.foreach(f,:headers => true, col_sep:"\t") do |row|
           
@@ -63,20 +62,20 @@ require 'csv'
              
           end
       end
-          
+    end      
     if @import_file.save
       redirect_to pedidos_path, notice:  "Arquivo Importado com Sucesso"
     else 
-       render :new
+       render "new"
     end
     
   end
 
 
-  private
+private
 
    def import_file_params
-      params.require(:import_file).permit(:attachment)
+      params.fetch(:import_file, {}).permit(:attachment)
    end
    
     

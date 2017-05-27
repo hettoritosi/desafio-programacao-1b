@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :pedidos
-  resources :import_files
+  resources :import_files,  only: [:new, :create]
   root "pedidos#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

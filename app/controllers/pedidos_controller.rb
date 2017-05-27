@@ -3,11 +3,8 @@ class PedidosController < ApplicationController
 
 
   def index
-  
     @pedidos = Pedido.all
     @receita_bruta = Pedido.includes(:produto).sum(:preco_unit)
-
-
   end
 
  
