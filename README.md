@@ -15,8 +15,8 @@
 
  Agora rode a aplicação
  
- $ rails server
+      $ rails server
  
- Obs: Caso queira executar os teste basta executar:
+ Obs: Caso queira executar os testes basta executar:
  
        $ bundle exec rspec
