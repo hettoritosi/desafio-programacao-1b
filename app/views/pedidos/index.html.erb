@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de Pedidos</h1>
+
+<div class="new_file">
+<%= link_to 'Importar Novo Arquivo', new_import_file_path, class: "btn btn-primary"  %>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Descrição</th>
+      <th>Preço Unitário</th>
+      <th>Quantidade</th>
+      <th>Endereço</th>
+      <th>Fornecedor</th>
+     
+    </tr>
+  </thead>
+
+  <tbody>
+    
+    <% @pedidos.each do |pedido| %>
+  
+    <tr>
+        <td><%= pedido.comprador.nome %></td>
+        <td><%= pedido.produto.descricao %></td>
+        <td><%= pedido.produto.preco_unit %></td>
+        <td><%= pedido.quantidade %></td> 
+        <td><%= pedido.comprador.endereco.descricao %></td>
+       <td><%= pedido.produto.fornecedor.nome %></td>
+    <% end %>
+   </tr>
+   
+  
+  
+  </tbody>
+
+</table>
+  <h2>Total da Receita Bruta R$  <%= @receita_bruta %></h2>
+
+<br>
+
+
+<%= link_to 'Importar Novo Arquivo', new_import_file_path, class: "btn btn-primary"  %>
+
