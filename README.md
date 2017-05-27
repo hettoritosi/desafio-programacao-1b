@@ -3,7 +3,7 @@
 
  1 - Clone o repositório 
  
- 2 - Instale as depedências  
+ 2 - Instale as dependências  
  
       $ bundle install 
       
