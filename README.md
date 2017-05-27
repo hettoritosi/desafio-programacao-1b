@@ -20,3 +20,6 @@
  Obs: Caso queira executar os testes basta executar:
  
        $ bundle exec rspec
+
+       
+by Héttori Tosi
