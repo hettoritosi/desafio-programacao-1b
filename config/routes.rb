@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :pedidos
+  resources :pedidos, :path => "vendas"
   resources :import_files,  only: [:new, :create]
   root "pedidos#index"
   # The priority is based upon order of creation: first created -> highest priority.
